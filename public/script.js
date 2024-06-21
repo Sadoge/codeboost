@@ -5,6 +5,8 @@ async function processCode(action) {
     const copyButton = document.getElementById('copyButton');
     const clearButton = document.getElementById('clearButton');
 
+    const language = 'javascript';
+
     loader.style.display = 'block';
     resultElement.innerHTML = '';
     copyButton.classList.add('hidden');
@@ -16,7 +18,7 @@ async function processCode(action) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ code, action })
+            body: JSON.stringify({ code, action, language })
         });
 
         const result = await response.json();
@@ -29,6 +31,35 @@ async function processCode(action) {
         }
     } catch (error) {
         resultElement.innerHTML = '<p class="text-red-500">Failed to process code.</p>';
+    } finally {
+        loader.style.display = 'none';
+    }
+}
+
+async function generateDocs() {
+    const code = document.getElementById('codeInput').value;
+    const languageSelect = document.getElementById('languageSelect');
+    const language = languageSelect.value; // Get the selected language
+    const loader = document.getElementById('loader');
+    loader.style.display = 'block';
+
+    try {
+        const response = await fetch('/api/generate-docs', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ code, language })  // Include the language parameter
+        });
+
+        const result = await response.json();
+        if (result.docUrl) {
+            window.open(result.docUrl, '_blank');
+        } else {
+            alert('Failed to generate documentation');
+        }
+    } catch (error) {
+        alert('Failed to generate documentation');
     } finally {
         loader.style.display = 'none';
     }
