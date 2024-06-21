@@ -12,6 +12,28 @@
     <div class="container mx-auto p-6">
         <h1 class="text-3xl font-bold mb-6 text-center">CodeBoost</h1>
         <textarea id="codeInput" placeholder="Paste your code here" class="w-full p-4 mb-4 border rounded-lg shadow-sm"></textarea>
+        
+        <div class="mb-4">
+            <label for="modelSelect" class="block mb-2">Select OpenAI Model:</label>
+            <select id="modelSelect" class="w-full p-2 mb-4 border rounded-lg shadow-sm">
+                <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
+                <option value="gpt-3.5-turbo-16k">GPT-3.5 Turbo 16k</option>
+                <option value="gpt-4o">GPT-4o</option>
+            </select>
+        </div>
+        
+        <div class="mb-4">
+            <label for="languageSelect" class="block mb-2">Select Programming Language:</label>
+            <select id="languageSelect" class="w-full p-2 mb-4 border rounded-lg shadow-sm">
+                <option value="javascript">JavaScript</option>
+                <option value="python">Python</option>
+                <option value="dart">Dart</option>
+                <option value="swift">Swift</option>
+                <option value="java">Java</option>
+                <option value="kotlin">Kotlin</option>
+            </select>
+        </div>
+        
         <div class="flex justify-center mb-4 space-x-4">
             <button onclick="processCode('comments')" class="px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600">Add Comments</button>
             <button onclick="processCode('tests')" class="px-4 py-2 bg-green-500 text-white rounded-lg shadow-md hover:bg-green-600">Write Tests</button>
@@ -31,4 +53,4 @@
     <script src="prism.js"></script>
     <script src="script.js"></script>
 </body>
-</html
+</html>

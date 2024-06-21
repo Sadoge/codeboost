@@ -1,11 +1,13 @@
 async function processCode(action) {
     const code = document.getElementById('codeInput').value;
+    const modelSelect = document.getElementById('modelSelect');
+    const model = modelSelect.value; // Get the selected model
+    const languageSelect = document.getElementById('languageSelect');
+    const language = languageSelect.value; // Get the selected language
     const loader = document.getElementById('loader');
     const resultElement = document.getElementById('result');
     const copyButton = document.getElementById('copyButton');
     const clearButton = document.getElementById('clearButton');
-
-    const language = 'javascript';
 
     loader.style.display = 'block';
     resultElement.innerHTML = '';
@@ -18,7 +20,7 @@ async function processCode(action) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ code, action, language })
+            body: JSON.stringify({ code, action, language, model })  // Include the model and language parameters
         });
 
         const result = await response.json();
