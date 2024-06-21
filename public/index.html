@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CodeBoost</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="prism.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <div class="container mx-auto p-6">
+        <h1 class="text-3xl font-bold mb-6 text-center">CodeBoost</h1>
+        <textarea id="codeInput" placeholder="Paste your code here" class="w-full p-4 mb-4 border rounded-lg shadow-sm"></textarea>
+        <div class="flex justify-center mb-4 space-x-4">
+            <button onclick="processCode('comments')" class="px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600">Add Comments</button>
+            <button onclick="processCode('tests')" class="px-4 py-2 bg-green-500 text-white rounded-lg shadow-md hover:bg-green-600">Write Tests</button>
+            <button onclick="processCode('refactor')" class="px-4 py-2 bg-yellow-500 text-white rounded-lg shadow-md hover:bg-yellow-600">Refactor Code</button>
+            <button id="copyButton" onclick="copyCode()" class="px-4 py-2 bg-gray-500 text-white rounded-lg shadow-md hover:bg-gray-600 hidden">
+                <i class="fas fa-copy"></i>
+            </button>
+            <button id="clearButton" onclick="clearResult()" class="px-4 py-2 bg-red-500 text-white rounded-lg shadow-md hover:bg-red-600 hidden">
+                <i class="fas fa-trash"></i>
+            </button>
+        </div>
+        <div id="loader" class="loader mx-auto" style="display: none;"></div>
+        <div id="result" class="output-container bg-white p-4 border rounded-lg shadow-sm"></div>
+    </div>
+
+    <script src="prism.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
