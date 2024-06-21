@@ -56,7 +56,7 @@ app.use('/docs', express.static(path.join(__dirname, 'temp', 'docs')));
 
 // Start the server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
 
@@ -196,3 +196,5 @@ function execPromise(command) {
     });
 }
 
+module.exports = app;
+module.exports = server;
