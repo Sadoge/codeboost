@@ -34,7 +34,7 @@ CodeBoost is a web application that allows users to paste code and perform vario
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/yourusername/codeboost.git
+   git clone https://github.com/Sadoge/codeboost.git
    cd codeboost
    ```
 
